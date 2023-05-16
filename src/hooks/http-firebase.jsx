@@ -13,9 +13,10 @@ function useHttp(requestConfig, applyData) {
 				// built to be re-usable for various requests like GET, POST etc.
 				requestConfig.url,
 				{
-					method: requestConfig.method,
-					headers: requestConfig.headers,
-					body: JSON.stringify(requestConfig.body),
+                    // only append to the request if not empty i.e while fetching
+					method: requestConfig.method ? requestConfig.method : "GET",
+					headers: requestConfig.headers ? requestConfig.headers : {},
+					body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
 				}
 			)
 
