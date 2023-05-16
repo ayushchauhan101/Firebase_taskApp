@@ -1,8 +1,9 @@
-import { useState } from "react"
 import useHttp from "../../hooks/http-firebase"
 
 import Section from "../UI/Section"
 import TaskForm from "./TaskForm"
+
+const firebaseURL = import.meta.env.VITE_url 
 
 const NewTask = (props) => {
 	const { isLoading, error, sendRequest: sendTaskRequest } = useHttp()
@@ -16,7 +17,7 @@ const NewTask = (props) => {
 	const enterTaskHandler = async (taskText) => {
 		sendTaskRequest(
 			{
-				url: "https://http-react-95db4-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json",
+				url: firebaseURL,
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

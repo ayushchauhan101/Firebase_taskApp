@@ -4,6 +4,8 @@ import useHttp from "./hooks/http-firebase"
 import Tasks from "./components/Tasks/Tasks"
 import NewTask from "./components/NewTask/NewTask"
 
+const firebaseURL = import.meta.env.VITE_url
+
 function App() {
 	const [tasks, setTasks] = useState([])
 
@@ -22,7 +24,7 @@ function App() {
 
 		fetchTasks(
 			{
-				url: "https://http-react-95db4-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json",
+				url: firebaseURL,
 			},
 			transformTask
 		)
